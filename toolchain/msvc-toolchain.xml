@@ -66,8 +66,11 @@
   <flag value="-GR"/>
 
   <!-- standard optimization flags -->
+  <!--
   <flag value="-Od" if="debug" tag="optim-std" />
   <flag value="-O2" unless="debug" tag="optim-std" />
+  -->
+  <flag value="-Od" tag="optim-std" />
   <section if="HXCPP_DEBUG_LINK">
      <flag value="-Zi" unless="HXCPP_COMPILE_CACHE" tag="optim-std" />
      <flag value="-Z7" if="HXCPP_COMPILE_CACHE" tag="optim-std" />
@@ -78,15 +81,21 @@
   <flag value="-Zi" unless="HXCPP_COMPILE_CACHE" tag="debug" />
   <flag value="-Z7" if="HXCPP_COMPILE_CACHE" tag="debug" />
   <flag value="-Fd${HXCPP_BUILD_DIR}${MSVC_OBJ_DIR}/vc.pdb" unless="HXCPP_COMPILE_CACHE" tag="debug" />
+  <!--
   <flag value="-Od" tag="debug" />
   <flag value="-O2" tag="release" />
+  -->
   <flag value="-bigobj" if="debug"  />
   <flag value="-Zc:inline" if="HXCPP_FAST_LINK" unless="debug || HXCPP_OPTIMIZE_LINK || HXCPP_LTCG_INCREMENTAL" /><!-- not available with -Od and -GL -->
+  <!--
   <flag value="-Os" tag="optim-size" />
+  -->
   <flag value="-GL" if="HXCPP_OPTIMIZE_LINK || HXCPP_LTCG_INCREMENTAL" unless="debug"/>
 
   <flag value="-FS" if="HXCPP_FORCE_PDB_SERVER" />
+  <!--
   <flag value="-Oy-"/>
+  -->
   <flag value="-c"/>
   <flag value="-EHa" if="HXCPP_CATCH_SEGV" />
   <flag value="-EHs" unless="HXCPP_CATCH_SEGV || winrt"/>
