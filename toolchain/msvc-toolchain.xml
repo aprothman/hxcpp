@@ -88,9 +88,9 @@
   <flag value="-GL" if="HXCPP_OPTIMIZE_LINK || HXCPP_LTCG_INCREMENTAL" unless="debug"/>
 
   <flag value="-FS" if="HXCPP_FORCE_PDB_SERVER" />
-  <!--
+
   <flag value="-Oy-"/>
-  -->
+
   <flag value="-c"/>
   <flag value="-EHa" if="HXCPP_CATCH_SEGV" />
   <flag value="-EHs" unless="HXCPP_CATCH_SEGV || winrt"/>
