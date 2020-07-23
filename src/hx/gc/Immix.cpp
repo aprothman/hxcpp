@@ -134,9 +134,9 @@ static size_t sgMaximumFreeSpace  = 1024*1024*1024;
 // HXCPP_GC_DYNAMIC_SIZE
 
 //#define HXCPP_GC_SUMMARY
-#define PROFILE_COLLECT
-//#define PROFILE_THREAD_USAGE
-#define HX_GC_VERIFY
+//#define PROFILE_COLLECT
+#define PROFILE_THREAD_USAGE
+//#define HX_GC_VERIFY
 //#define SHOW_MEM_EVENTS
 //#define SHOW_MEM_EVENTS_VERBOSE
 //#define SHOW_FRAGMENTATION
