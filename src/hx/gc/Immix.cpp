@@ -5991,7 +5991,6 @@ public:
    }
 
 
-
    // Called by the collecting thread to make sure this allocator is paused.
    // The collecting thread has the lock, and will not be releasing it until
    //  it has finished the collect.
@@ -6381,6 +6380,16 @@ void ExitGCFreeZoneLocked()
    #ifndef HXCPP_SINGLE_THREADED_APP
       LocalAllocator *tla = GetLocalAlloc();
       tla->ExitGCFreeZoneLocked();
+   #endif
+}
+
+bool InGCFreeZone()
+{
+   #ifndef HXCPP_SINGLE_THREADED_APP
+      LocalAllocator *tla = GetLocalAlloc();
+      return tla->mGCFreeZone;
+   #else
+      return false;
    #endif
 }
 
@@ -6868,6 +6877,17 @@ void __hxcpp_exit_gc_free_zone()
    hx::ExitGCFreeZone();
 }
 
+
+bool __hxcpp_try_exit_gc_free_zone()
+{
+   return hx::TryExitGCFreeZone();
+}
+
+
+bool __hxcpp_in_gc_free_zone()
+{
+   return hx::InGCFreeZone();
+}
 
 void __hxcpp_gc_safe_point()
 {
