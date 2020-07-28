@@ -36,6 +36,9 @@ HXCPP_EXTERN_CLASS_ATTRIBUTES int   __hxcpp_gc_used_bytes();
 HXCPP_EXTERN_CLASS_ATTRIBUTES double __hxcpp_gc_mem_info(int inWhat);
 HXCPP_EXTERN_CLASS_ATTRIBUTES void  __hxcpp_enter_gc_free_zone();
 HXCPP_EXTERN_CLASS_ATTRIBUTES void  __hxcpp_exit_gc_free_zone();
+HXCPP_EXTERN_CLASS_ATTRIBUTES bool  __hxcpp_try_gc_free_zone();
+HXCPP_EXTERN_CLASS_ATTRIBUTES bool  __hxcpp_try_exit_gc_free_zone();
+HXCPP_EXTERN_CLASS_ATTRIBUTES bool  __hxcpp_in_gc_free_zone();
 HXCPP_EXTERN_CLASS_ATTRIBUTES void  __hxcpp_gc_safe_point();
 HXCPP_EXTERN_CLASS_ATTRIBUTES void  __hxcpp_spam_collects(int inEveryNCalls);
 HXCPP_EXTERN_CLASS_ATTRIBUTES void  __hxcpp_set_minimum_working_memory(int inBytes);
@@ -220,6 +223,8 @@ void ExitGCFreeZone();
 bool TryGCFreeZone();
 // retuns true if ExitGCFreeZone was called
 bool TryExitGCFreeZone();
+// returns true if we're in a GCFreeZone
+bool InGCFreeZone();
 
 class HXCPP_EXTERN_CLASS_ATTRIBUTES AutoGCFreeZone
 {
